@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service'
+import { ProductModalServer,ServerResponse } from '../../models/product';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,11 +12,12 @@ export class HomeComponent implements OnInit {
 
   constructor(private productService: ProductService, private router:Router) { }
 
-  products: any[] = [];
+  products: ProductModalServer[] = [];
 
   ngOnInit(): void {
-    this.productService.getAllProducts().subscribe((p: { count: Number, products: any[] }) => {
-      this.products = p.products;
+    this.productService.getAllProducts().subscribe((prod: ServerResponse[]) => {
+     this.products= prod.products;
+
     });
   }
 
