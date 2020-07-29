@@ -1,4 +1,4 @@
-export interface ProductModalServer {
+export interface ProductModelServer {
 
   id: number;
   name: string;
@@ -12,7 +12,7 @@ export interface ProductModalServer {
 }
 
 export interface ServerResponse {
+  products: ProductModelServer[];
   count: number;
-  products: ProductModalServer[];
 
 }
